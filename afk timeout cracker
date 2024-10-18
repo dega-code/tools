@@ -5,7 +5,7 @@
     }
  
     const simulateActivity = () => {
-        const canvas = document.querySelector('canvas');
+        const canvas = document.querySelector('canvas#canvas.unselectable.pixelart');
         if (!canvas) {
             alert('Canvas no encontrado.');
             return;
