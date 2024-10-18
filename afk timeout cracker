@@ -10,16 +10,13 @@
             alert('Canvas no encontrado.');
             return;
         }
-
-        const rect = canvas.getBoundingClientRect(); // Obtener el tamaño y posición del canvas
+        const rect = canvas.getBoundingClientRect();
         const randomX = Math.random() * rect.width;
         const randomY = Math.random() * rect.height;
 
         // Coordenadas absolutas en el documento
         const absoluteX = rect.left + randomX;
         const absoluteY = rect.top + randomY;
-
-        // Simula el movimiento del mouse hacia la posición aleatoria dentro del canvas
         const eventMove = new MouseEvent('mousemove', {
             bubbles: true,
             cancelable: true,
@@ -27,8 +24,6 @@
             clientY: absoluteY,
         });
         document.dispatchEvent(eventMove);
-
-        // Simula el clic en la misma posición dentro del canvas
         const eventClick = new MouseEvent('click', {
             bubbles: true,
             cancelable: true,
@@ -37,7 +32,6 @@
         });
         canvas.dispatchEvent(eventClick);
     };
-
     const toggleActivity = () => {
         if (isActive) {
             clearInterval(intervalId);
