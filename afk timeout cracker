@@ -1,0 +1,55 @@
+(function () {
+    if (typeof isActive === 'undefined') {
+        isActive = false;
+        intervalId = null;
+    }
+
+    const simulateActivity = () => {
+        const canvas = document.querySelector('canvas');
+        if (!canvas) {
+            alert('Canvas no encontrado.');
+            return;
+        }
+
+        const rect = canvas.getBoundingClientRect(); // Obtener el tamaño y posición del canvas
+        const randomX = Math.random() * rect.width;
+        const randomY = Math.random() * rect.height;
+
+        // Coordenadas absolutas en el documento
+        const absoluteX = rect.left + randomX;
+        const absoluteY = rect.top + randomY;
+
+        // Simula el movimiento del mouse hacia la posición aleatoria dentro del canvas
+        const eventMove = new MouseEvent('mousemove', {
+            bubbles: true,
+            cancelable: true,
+            clientX: absoluteX,
+            clientY: absoluteY,
+        });
+        document.dispatchEvent(eventMove);
+
+        // Simula el clic en la misma posición dentro del canvas
+        const eventClick = new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            clientX: absoluteX,
+            clientY: absoluteY,
+        });
+        canvas.dispatchEvent(eventClick);
+    };
+
+    const toggleActivity = () => {
+        if (isActive) {
+            clearInterval(intervalId);
+            isActive = false;
+            intervalId = null;
+            alert('Off');
+        } else {
+            intervalId = setInterval(simulateActivity, 5000);
+            isActive = true;
+            alert('On');
+        }
+    };
+
+    toggleActivity();
+})();
