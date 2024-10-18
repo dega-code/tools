@@ -3,7 +3,7 @@
         isActive = false;
         intervalId = null;
     }
-
+ 
     const simulateActivity = () => {
         const canvas = document.querySelector('canvas');
         if (!canvas) {
