@@ -14,7 +14,6 @@
         const randomX = Math.random() * rect.width;
         const randomY = Math.random() * rect.height;
 
-        // Coordenadas absolutas en el documento
         const absoluteX = rect.left + randomX;
         const absoluteY = rect.top + randomY;
         const eventMove = new MouseEvent('mousemove', {
