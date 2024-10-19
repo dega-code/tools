@@ -7,7 +7,7 @@
     const simulateActivity = () => {
         const canvas = document.querySelector('canvas#canvas.unselectable.pixelart');
         if (!canvas) {
-            alert('Canvas no encontrado.');
+            alert('This Is Not Ponytown...');
             return;
         }
         const rect = canvas.getBoundingClientRect();
