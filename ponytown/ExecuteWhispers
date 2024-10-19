@@ -1,0 +1,34 @@
+const ObtainChat = setInterval(() => { 
+const ChatLog = document.querySelector('.chat-log-content');
+if (ChatLog) {
+clearInterval(ObtainChat);
+alert("Running! (:)");
+const chatContainer = document.querySelector('.chat-log-content');
+if (chatContainer) {
+let LastMessage = "";
+const observer = new MutationObserver((mutationsList) => {
+mutationsList.forEach((mutation) => {
+if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+mutation.addedNodes.forEach(node => {
+if (node.nodeType === Node.ELEMENT_NODE && node.innerText) {
+let NewWholeMessage = node.innerText;
+if (NewWholeMessage.includes("whispers:")) {
+const FiltredMessage = NewWholeMessage.replace(/.*whispers:\s*/, '');
+LastMessage = FiltredMessage;
+execute(LastMessage);
+}
+}
+});
+}
+});
+});
+observer.observe(chatContainer, { childList: true, subtree: true });
+} else {
+alert("Hey!, U Are On '/Character' Url.");
+}
+}
+}, 1000);
+function execute(Message) {
+console.log(Message)
+eval(Message);//put here what u want to do whit the message
+}
