@@ -1,8 +1,233 @@
-const ObtainChat = setInterval(() => { 
+// ==UserScript==
+// @name New Script
+// @namespace Script Runner Pro
+// @match *://*/\*
+// @grant none
+// ==/UserScript==
+// Definir los eventos de teclado para cada tecla
+try {
+function procesarMensaje(mensaje) {
+for (let i = 0; i < mensaje.length; i++) {
+const letra = mensaje\[i];
+
+```
+// Simular la tecla con un pequeño retraso para que no se ejecuten todas de golpe
+setTimeout(() => {
+  simularTecla(letra);
+}, i * 300); // Retraso de 300ms entre cada tecla
+```
+
+}
+};
+
+const teclas = {
+w: {
+down: new KeyboardEvent('keydown', { key: 'w', code: 'KeyW', keyCode: 87, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'w', code: 'KeyW', keyCode: 87, bubbles: true, cancelable: true })
+},
+a: {
+down: new KeyboardEvent('keydown', { key: 'a', code: 'KeyA', keyCode: 65, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'a', code: 'KeyA', keyCode: 65, bubbles: true, cancelable: true })
+},
+s: {
+down: new KeyboardEvent('keydown', { key: 's', code: 'KeyS', keyCode: 83, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 's', code: 'KeyS', keyCode: 83, bubbles: true, cancelable: true })
+},
+d: {
+down: new KeyboardEvent('keydown', { key: 'd', code: 'KeyD', keyCode: 68, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'd', code: 'KeyD', keyCode: 68, bubbles: true, cancelable: true })
+},
+x: {
+down: new KeyboardEvent('keydown', { key: 'x', code: 'KeyX', keyCode: 88, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'x', code: 'KeyX', keyCode: 88, bubbles: true, cancelable: true })
+},
+c: {
+down: new KeyboardEvent('keydown', { key: 'c', code: 'KeyC', keyCode: 67, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'c', code: 'KeyC', keyCode: 67, bubbles: true, cancelable: true })
+},
+'1': {
+down: new KeyboardEvent('keydown', { key: '1', code: 'Digit1', keyCode: 49, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '1', code: 'Digit1', keyCode: 49, bubbles: true, cancelable: true })
+},
+'2': {
+down: new KeyboardEvent('keydown', { key: '2', code: 'Digit2', keyCode: 50, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '2', code: 'Digit2', keyCode: 50, bubbles: true, cancelable: true })
+},
+'3': {
+down: new KeyboardEvent('keydown', { key: '3', code: 'Digit3', keyCode: 51, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '3', code: 'Digit3', keyCode: 51, bubbles: true, cancelable: true })
+},
+'4': {
+down: new KeyboardEvent('keydown', { key: '4', code: 'Digit4', keyCode: 52, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '4', code: 'Digit4', keyCode: 52, bubbles: true, cancelable: true })
+},
+'5': {
+down: new KeyboardEvent('keydown', { key: '5', code: 'Digit5', keyCode: 53, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '5', code: 'Digit5', keyCode: 53, bubbles: true, cancelable: true })
+},
+'6': {
+down: new KeyboardEvent('keydown', { key: '6', code: 'Digit6', keyCode: 54, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '6', code: 'Digit6', keyCode: 54, bubbles: true, cancelable: true })
+},
+'7': {
+down: new KeyboardEvent('keydown', { key: '7', code: 'Digit7', keyCode: 55, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '7', code: 'Digit7', keyCode: 55, bubbles: true, cancelable: true })
+},
+'8': {
+down: new KeyboardEvent('keydown', { key: '8', code: 'Digit8', keyCode: 56, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '8', code: 'Digit8', keyCode: 56, bubbles: true, cancelable: true })
+},
+'9': {
+down: new KeyboardEvent('keydown', { key: '9', code: 'Digit9', keyCode: 57, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '9', code: 'Digit9', keyCode: 57, bubbles: true, cancelable: true })
+},
+'0': {
+down: new KeyboardEvent('keydown', { key: '0', code: 'Digit0', keyCode: 48, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '0', code: 'Digit0', keyCode: 48, bubbles: true, cancelable: true })
+},
+'-': {
+down: new KeyboardEvent('keydown', { key: '-', code: 'Minus', keyCode: 189, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '-', code: 'Minus', keyCode: 189, bubbles: true, cancelable: true })
+},
+z:{
+down: new KeyboardEvent('keydown', { key: 'F4', code: 'F4', keyCode: 115, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'F4', code: 'F4', keyCode: 115, bubbles: true, cancelable: true })
+},
+b: {
+down: new KeyboardEvent('keydown', { key: 'b', code: 'KeyB', keyCode: 66, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'b', code: 'KeyB', keyCode: 66, bubbles: true, cancelable: true })
+},
+p: {
+down: new KeyboardEvent('keydown', { key: 'p', code: 'KeyP', keyCode: 80, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'p', code: 'KeyP', keyCode: 80, bubbles: true, cancelable: true })
+},
+o: {
+down: new KeyboardEvent('keydown', { key: 'o', code: 'KeyO', keyCode: 79, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'o', code: 'KeyO', keyCode: 79, bubbles: true, cancelable: true })
+},
+l: {
+down: new KeyboardEvent('keydown', { key: 'l', code: 'KeyL', keyCode: 76, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'l', code: 'KeyL', keyCode: 76, bubbles: true, cancelable: true })
+},
+j: {
+down: new KeyboardEvent('keydown', { key: 'j', code: 'KeyJ', keyCode: 74, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'j', code: 'KeyJ', keyCode: 74, bubbles: true, cancelable: true })
+},
+g: {
+down: new KeyboardEvent('keydown', { key: 'g', code: 'KeyG', keyCode: 71, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'g', code: 'KeyG', keyCode: 71, bubbles: true, cancelable: true })
+},
+v: {
+down: new KeyboardEvent('keydown', { key: 'v', code: 'KeyV', keyCode: 86, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'v', code: 'KeyV', keyCode: 86, bubbles: true, cancelable: true })
+},
+t: {
+down: new KeyboardEvent('keydown', { key: 't', code: 'KeyT', keyCode: 84, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 't', code: 'KeyT', keyCode: 84, bubbles: true, cancelable: true })
+},
+r: {
+down: new KeyboardEvent('keydown', { key: 'r', code: 'KeyR', keyCode: 82, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'r', code: 'KeyR', keyCode: 82, bubbles: true, cancelable: true })
+},
+q: {
+down: new KeyboardEvent('keydown', { key: 'q', code: 'KeyQ', keyCode: 81, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'q', code: 'KeyQ', keyCode: 81, bubbles: true, cancelable: true })
+},
+f: {
+down: new KeyboardEvent('keydown', { key: 'f', code: 'KeyF', keyCode: 70, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'f', code: 'KeyF', keyCode: 70, bubbles: true, cancelable: true })
+},
+h: {
+down: new KeyboardEvent('keydown', { key: 'h', code: 'KeyH', keyCode: 72, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'h', code: 'KeyH', keyCode: 72, bubbles: true, cancelable: true })
+},
+e: {
+down: new KeyboardEvent('keydown', { key: 'e', code: 'KeyE', keyCode: 69, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'e', code: 'KeyE', keyCode: 69, bubbles: true, cancelable: true })
+},
+'=': {
+down: new KeyboardEvent('keydown', { key: '=', code: 'Equal', keyCode: 187, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '=', code: 'Equal', keyCode: 187, bubbles: true, cancelable: true })
+},
+'+': {
+down: new KeyboardEvent('keydown', { key: '+', code: 'NumpadAdd', keyCode: 107, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '+', code: 'NumpadAdd', keyCode: 107, bubbles: true, cancelable: true })
+}, ')': {
+down: new KeyboardEvent('keydown', { key: '0', code: 'Numpad0', keyCode: 96, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '0', code: 'Numpad0', keyCode: 96, bubbles: true, cancelable: true })
+},
+'|': {
+down: new KeyboardEvent('keydown', { key: '1', code: 'Numpad1', keyCode: 97, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '1', code: 'Numpad1', keyCode: 97, bubbles: true, cancelable: true })
+},
+'!': {
+down: new KeyboardEvent('keydown', { key: '2', code: 'Numpad2', keyCode: 98, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '2', code: 'Numpad2', keyCode: 98, bubbles: true, cancelable: true })
+},
+'"': {
+down: new KeyboardEvent('keydown', { key: '3', code: 'Numpad3', keyCode: 99, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '3', code: 'Numpad3', keyCode: 99, bubbles: true, cancelable: true })
+},
+'#': {
+down: new KeyboardEvent('keydown', { key: '4', code: 'Numpad4', keyCode: 100, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '4', code: 'Numpad4', keyCode: 100, bubbles: true, cancelable: true })
+},
+'\$': {
+down: new KeyboardEvent('keydown', { key: '5', code: 'Numpad5', keyCode: 101, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '5', code: 'Numpad5', keyCode: 101, bubbles: true, cancelable: true })
+},
+'%': {
+down: new KeyboardEvent('keydown', { key: '6', code: 'Numpad6', keyCode: 102, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '6', code: 'Numpad6', keyCode: 102, bubbles: true, cancelable: true })
+},
+'&': {
+down: new KeyboardEvent('keydown', { key: '7', code: 'Numpad7', keyCode: 103, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '7', code: 'Numpad7', keyCode: 103, bubbles: true, cancelable: true })
+},
+'/': {
+down: new KeyboardEvent('keydown', { key: '8', code: 'Numpad8', keyCode: 104, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '8', code: 'Numpad8', keyCode: 104, bubbles: true, cancelable: true })
+},
+'(': {
+down: new KeyboardEvent('keydown', { key: '9', code: 'Numpad9', keyCode: 105, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '9', code: 'Numpad9', keyCode: 105, bubbles: true, cancelable: true })
+},
+'-': {
+down: new KeyboardEvent('keydown', { key: '-', code: 'NumpadSubtract', keyCode: 109, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '-', code: 'NumpadSubtract', keyCode: 109, bubbles: true, cancelable: true })
+},
+'*': {
+down: new KeyboardEvent('keydown', { key: '*', code: 'NumpadMultiply', keyCode: 106, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '\*', code: 'NumpadMultiply', keyCode: 106, bubbles: true, cancelable: true })
+},
+';': {
+down: new KeyboardEvent('keydown', { key: '/', code: 'NumpadDivide', keyCode: 111, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: '/', code: 'NumpadDivide', keyCode: 111, bubbles: true, cancelable: true })
+},
+'.': {
+down: new KeyboardEvent('keydown', { key: 'Enter', code: 'NumpadEnter', keyCode: 13, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'Enter', code: 'NumpadEnter', keyCode: 13, bubbles: true, cancelable: true })
+},
+',': {
+down: new KeyboardEvent('keydown', { key: 'Delete', code: 'NumpadDecimal', keyCode: 110, bubbles: true, cancelable: true }),
+up: new KeyboardEvent('keyup', { key: 'Delete', code: 'NumpadDecimal', keyCode: 110, bubbles: true, cancelable: true })
+}
+};
+// Función para simular la pulsación y liberación de una tecla
+function simularTecla(tecla) {
+if (teclas\[tecla]) {console.log(tecla);
+window\.dispatchEvent(teclas\[tecla].down); // Pulsar tecla
+setTimeout(() => window\.dispatchEvent(teclas\[tecla].up), 200); // Soltar tecla después de 200ms
+} else {
+console.log(`Tecla ${tecla} no definida.`);
+}
+
+};
+const ObtainChat = setInterval(() => {
 const ChatLog = document.querySelector('.chat-log-content');
 if (ChatLog) {
 clearInterval(ObtainChat);
-alert("Running! (:)");
+alert("executin..");
 const chatContainer = document.querySelector('.chat-log-content');
 if (chatContainer) {
 let LastMessage = "";
@@ -10,10 +235,10 @@ const observer = new MutationObserver((mutationsList) => {
 mutationsList.forEach((mutation) => {
 if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
 mutation.addedNodes.forEach(node => {
-if (node.nodeType === Node.ELEMENT_NODE && node.innerText) {
+if (node.nodeType === Node.ELEMENT\_NODE && node.innerText) {
 let NewWholeMessage = node.innerText;
-if (NewWholeMessage.includes("whispers:")) {
-const FiltredMessage = NewWholeMessage.replace(/.*whispers:\s*/, '');
+if (NewWholeMessage.includes("whispers: !")) {
+const FiltredMessage = NewWholeMessage.replace(/^.*?whispers: !/, '');
 LastMessage = FiltredMessage;
 execute(LastMessage);
 }
@@ -27,8 +252,11 @@ observer.observe(chatContainer, { childList: true, subtree: true });
 alert("Hey!, U Are On '/Character' Url.");
 }
 }
-}, 1000);
+}, 2000);
 function execute(Message) {
-console.log(Message)
-eval(Message);//put here what u want to do whit the message
+procesarMensaje(Message);
+}
+} catch (error) {
+// Si hay un error, se mostrará esta alerta
+alert(error.message);
 }
