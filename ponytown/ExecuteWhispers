@@ -263,14 +263,14 @@ if (botones.length >= 3) {
     return `Se Ejecutó "${r}"`;
   }
 },
-    |: {
+    "|": {
       event: () => { if (!document.body.style.filter || document.body.style.filter === "none") {
   document.body.style.filter = "invert(1)";
   document.querySelectorAll("img, video").forEach(el => el.style.filter = "invert(1)");
 } else {
   document.body.style.filter = "none";
   document.querySelectorAll("img, video").forEach(el => el.style.filter = "none");
-}}
+}}},
 };
 // Función para simular la pulsación y liberación de una tecla
 function simularTecla(tecla) {
