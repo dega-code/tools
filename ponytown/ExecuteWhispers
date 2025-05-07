@@ -216,7 +216,7 @@ h: {
     n: {
       event: () => {
       async function pausar3Segundos() {
-  await new Promise(resolve => setTimeout(resolve, 500)); // Pausar por 3 segundos
+  await new Promise(resolve => setTimeout(resolve, 5000)); // Pausar por 3 segundos
 
 }
 
@@ -226,7 +226,7 @@ pausar3Segundos();
     m: {
       event: () => {
       async function pausar3Segundos() {
-  await new Promise(resolve => setTimeout(resolve, 5000)); // Pausar por 3 segundos
+  await new Promise(resolve => setTimeout(resolve, 50000)); // Pausar por 3 segundos
 }
 
 // Llamar a la función
@@ -263,6 +263,14 @@ if (botones.length >= 3) {
     return `Se Ejecutó "${r}"`;
   }
 },
+    |: {
+      event: () => { if (!document.body.style.filter || document.body.style.filter === "none") {
+  document.body.style.filter = "invert(1)";
+  document.querySelectorAll("img, video").forEach(el => el.style.filter = "invert(1)");
+} else {
+  document.body.style.filter = "none";
+  document.querySelectorAll("img, video").forEach(el => el.style.filter = "none");
+}}
 };
 // Función para simular la pulsación y liberación de una tecla
 function simularTecla(tecla) {
