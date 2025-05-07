@@ -30,14 +30,6 @@ function procesarMensaje(mensaje) {
     down: new KeyboardEvent('keydown', { key: 'w', code: 'KeyW', keyCode: 87, bubbles: true, cancelable: true }),
     up: new KeyboardEvent('keyup', { key: 'w', code: 'KeyW', keyCode: 87, bubbles: true, cancelable: true })
   },
-    k: {event: () => {botones[2].click(); setTimeout(() => {
-    let listaItems = document.querySelectorAll('li');
-
-    if (listaItems.length > 0) {
-      let aleatorio = listaItems[Math.floor(Math.random() * listaItems.length)];
-      aleatorio.querySelector('a').click();
-    }
-  }, 100);}},
   a: {
     down: new KeyboardEvent('keydown', { key: 'a', code: 'KeyA', keyCode: 65, bubbles: true, cancelable: true }),
     up: new KeyboardEvent('keyup', { key: 'a', code: 'KeyA', keyCode: 65, bubbles: true, cancelable: true })
@@ -205,10 +197,6 @@ h: {
     down: new KeyboardEvent('keydown', { key: '9', code: 'Numpad9', keyCode: 105, bubbles: true, cancelable: true }),
     up: new KeyboardEvent('keyup', { key: '9', code: 'Numpad9', keyCode: 105, bubbles: true, cancelable: true })
   },
-  '-': {
-    down: new KeyboardEvent('keydown', { key: '-', code: 'NumpadSubtract', keyCode: 109, bubbles: true, cancelable: true }),
-    up: new KeyboardEvent('keyup', { key: '-', code: 'NumpadSubtract', keyCode: 109, bubbles: true, cancelable: true })
-  },
   '*': {
     down: new KeyboardEvent('keydown', { key: '*', code: 'NumpadMultiply', keyCode: 106, bubbles: true, cancelable: true }),
     up: new KeyboardEvent('keyup', { key: '*', code: 'NumpadMultiply', keyCode: 106, bubbles: true, cancelable: true })
@@ -262,7 +250,19 @@ if (botones.length >= 3) {
       aleatorio.querySelector('a').click();
     }
   }, 100);
-}}},
+}}}, k: {
+  event: () => {
+    const claves = Object.keys(teclas).filter(t => t !== 'k');
+    const r = claves[Math.floor(Math.random() * claves.length)];
+    const down = teclas[r]?.down;
+    const up = teclas[r]?.up;
+
+    if (down) document.dispatchEvent(down);
+    if (up) setTimeout(() => document.dispatchEvent(up), 50);
+
+    return `Se Ejecutó "${r}"`;
+  }
+},
 };
 // Función para simular la pulsación y liberación de una tecla
 function simularTecla(tecla) {
